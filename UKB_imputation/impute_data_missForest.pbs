@@ -1,0 +1,22 @@
+#!/bin/bash
+#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=20:mem=18gb
+#PBS -J 0-7
+#PBS -o /rds/general/user/am6220/projects/advance-omics/live/MACE_results/scripts
+#PBS -e /rds/general/user/am6220/projects/advance-omics/live/MACE_results/scripts
+
+
+#load conda environment
+eval "$(~/anaconda3/bin/conda shell.bash hook)"
+source activate R.4.0.0
+
+path=/rds/general/user/am6220/projects/advance-omics/live/MACE_results/
+
+files=("$path"/data/olink*.csv)
+
+file_i="${files[$PBS_ARRAY_INDEX]}"
+
+cp $path/scripts/impute_data.R .
+
+Rscript impute_data.R $file_i 123
+
