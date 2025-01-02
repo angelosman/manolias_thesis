@@ -1,0 +1,1 @@
+Script used to impute missing values in UKB data. Script was written by Angelos Manolias after looking at similar work done by Carrasco-Zanini, J. et al. Proteomic signatures improve risk prediction for common and rare diseases. Nat Med 30, 2489–2498 (2024).
